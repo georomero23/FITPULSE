@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPulse — Gym Management</title>
+  <link rel="stylesheet" href="/static/styles.css?v=1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     LOGIN SCREEN
+     ════════════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-visual">
+    <div class="glow"></div>
+    <div class="dots"></div>
+    <div class="login-visual-content">
+      <div class="login-logo">⚡</div>
+      <h1 class="login-brand">Fit<span>Pulse</span></h1>
+      <p class="login-subtitle">Tu plataforma de gestión fitness. Entrena inteligente, mide tu progreso.</p>
+      <div class="login-stats">
+        <div><p>500+</p><p>Usuarios</p></div>
+        <div><p>50+</p><p>Máquinas</p></div>
+        <div><p>1000+</p><p>Rutinas</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="login-form-side">
+    <div class="login-form-box">
+      <div class="flex items-center gap-3 mb-4" style="display:none" id="login-mobile-brand">
+        <div class="sidebar-logo">⚡</div>
+        <span style="font-weight:700;font-size:22px;">FitPulse</span>
+      </div>
+      <h2>Bienvenido</h2>
+      <p class="sub">Inicia sesión para continuar</p>
+      <div class="login-error" id="login-error">
+        <span>⚠️</span>
+        <span id="login-error-msg"></span>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="input-group">
+          <label>Correo Electrónico</label>
+          <input type="email" id="login-email" placeholder="tu@email.com">
+        </div>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" id="login-password" placeholder="••••••••">
+        </div>
+        <button class="btn btn-pink btn-lg w-full" id="login-btn" onclick="doLogin()">
+          Iniciar Sesión
+        </button>
+      </div>
+      <div class="login-demo">
+        <p>Cuentas Demo</p>
+        <p class="acc"><b>Admin:</b> admin@fitpulse.com / admin123</p>
+        <p class="acc"><b>Usuario:</b> maria@gym.com / user123</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SIDEBAR
+     ════════════════════════════════════════════ -->
+<nav id="sidebar" class="hidden">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">⚡</div>
+    <span class="sidebar-brand-text">FitPulse</span>
+  </div>
+  <div class="sidebar-nav" id="sidebar-nav"></div>
+  <div class="sidebar-footer">
+    <button class="sidebar-item" onclick="toggleSidebar()">
+      <span class="icon">☰</span>
+      <span class="sidebar-label">Colapsar</span>
+    </button>
+    <button class="sidebar-item" onclick="doLogout()" style="color:var(--text-muted)">
+      <span class="icon">🚪</span>
+      <span class="sidebar-label">Cerrar sesión</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     MAIN CONTENT AREA
+     ════════════════════════════════════════════ -->
+<main id="main-content" class="hidden">
+  <!-- All views render here dynamically via app.js -->
+  <div id="view-container"></div>
+</main>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-box" id="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-title"></h3>
+      <button class="btn-ghost" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="/static/app.js?v=1"></script>
+</body>
+</html>
